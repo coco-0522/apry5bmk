@@ -10,13 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
 <style>
 :root {
-  --blue-theme: #E3F2FD;
-  --green-theme: #E8F5E9;
-  --orange-theme: #FFF3E0;
-  --purple-theme: #F3E5F5;
+  --blue-theme: #E3F2FD; /* 浅蓝色 */
+  --pink-theme: #FCE4EC; /* 浅粉色 */
+  --purple-theme: #F3E5F5; /* 浅紫色 */
+  --green-theme: #E8F5E9; /* 浅绿色 */
 }
 body {
   font-family: 'KaiTi', serif; /* 默认字体为楷体 */
+  background-color: #f7fafc; /* 页面背景色 */
 }
 .flashcard-container {
   display: grid;
@@ -35,11 +36,13 @@ body {
   padding: 20px;
   border-radius: 12px;
   display: none; /* 默认隐藏卡片组 */
+  background-color: white; /* 卡片组背景色 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 卡片组阴影 */
 }
 .group-1 { background-color: var(--blue-theme); }
-.group-2 { background-color: var(--green-theme); }
-.group-3 { background-color: var(--orange-theme); }
-.group-4 { background-color: var(--purple-theme); }
+.group-2 { background-color: var(--pink-theme); }
+.group-3 { background-color: var(--purple-theme); }
+.group-4 { background-color: var(--green-theme); }
 .card {
   width: 100%;
   height: 200px;
@@ -54,8 +57,9 @@ body {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  background-color: white; /* 卡片背景色 */
 }
 .card.flipped .card-inner {
   transform: rotateY(180deg);
@@ -71,7 +75,10 @@ body {
   padding: 16px;
   border-radius: 8px;
   background: white;
-  font-size: 40px; /* 字体大小调整为40px */
+  font-size: 30px; /* 字体大小调整为30px */
+  word-wrap: break-word; /* 自动换行 */
+  overflow: hidden; /* 防止内容溢出 */
+  box-sizing: border-box; /* 确保内边距不影响尺寸 */
 }
 .card-front {
   font-family: 'KaiTi', serif; /* 正面使用楷体 */
@@ -84,9 +91,10 @@ body {
   font-weight: bold;
   padding: 10px 0;
   margin-bottom: 15px;
-  border-bottom: 2px solid rgba(0,0,0,0.1);
-  font-size: 40px; /* 标题字体大小调整为40px */
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  font-size: 36px; /* 标题字体大小调整为36px */
   font-family: 'KaiTi', serif; /* 标题使用楷体 */
+  text-align: center; /* 标题居中 */
 }
 .button-container {
   display: flex;
@@ -100,11 +108,26 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #4A90E2;
-  color: white;
+  color: black; /* 按钮字体颜色为黑色 */
   cursor: pointer;
   font-size: 20px; /* 按钮字体大小调整为20px */
   font-family: 'Comic Sans MS', cursive; /* 按钮使用Comic Sans MS */
+  transition: background-color 0.3s ease; /* 按钮悬停效果 */
+}
+.button-container button.group-1-btn {
+  background-color: var(--blue-theme); /* 第一组按钮颜色 */
+}
+.button-container button.group-2-btn {
+  background-color: var(--pink-theme); /* 第二组按钮颜色 */
+}
+.button-container button.group-3-btn {
+  background-color: var(--purple-theme); /* 第三组按钮颜色 */
+}
+.button-container button.group-4-btn {
+  background-color: var(--green-theme); /* 第四组按钮颜色 */
+}
+.button-container button:hover {
+  opacity: 0.8; /* 按钮悬停效果 */
 }
 .instruction {
   text-align: center;
@@ -123,10 +146,10 @@ body {
   </div>
 </header>
 <div class="button-container">
-  <button onclick="toggleGroup('group-1')">8-14/4</button>
-  <button onclick="toggleGroup('group-2')">15-21/4</button>
-  <button onclick="toggleGroup('group-3')">22-28/4</button>
-  <button onclick="toggleGroup('group-4')">1-7/4</button>
+  <button class="group-1-btn" onclick="toggleGroup('group-1')">8-14/4</button>
+  <button class="group-2-btn" onclick="toggleGroup('group-2')">15-21/4</button>
+  <button class="group-3-btn" onclick="toggleGroup('group-3')">22-28/4</button>
+  <button class="group-4-btn" onclick="toggleGroup('group-4')">1-7/4</button>
 </div>
 <div class="flashcard-container">
   <!-- 8-14/4 -->
