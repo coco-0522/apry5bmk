@@ -6,14 +6,17 @@
 <title>Y5 BMK EJAAN APR</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=KaiTi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&display=swap" rel="stylesheet">
 <style>
 :root {
   --blue-theme: #E3F2FD;
   --green-theme: #E8F5E9;
   --orange-theme: #FFF3E0;
   --purple-theme: #F3E5F5;
+}
+body {
+  font-family: 'KaiTi', serif; /* 默认字体为楷体 */
 }
 .flashcard-container {
   display: grid;
@@ -31,7 +34,7 @@
 .card-group {
   padding: 20px;
   border-radius: 12px;
-  display: none;
+  display: none; /* 默认隐藏卡片组 */
 }
 .group-1 { background-color: var(--blue-theme); }
 .group-2 { background-color: var(--green-theme); }
@@ -68,17 +71,22 @@
   padding: 16px;
   border-radius: 8px;
   background: white;
-  font-size: 18px;
+  font-size: 40px; /* 字体大小调整为40px */
+}
+.card-front {
+  font-family: 'KaiTi', serif; /* 正面使用楷体 */
 }
 .card-back {
   transform: rotateY(180deg);
+  font-family: 'Comic Sans MS', cursive; /* 背面使用Comic Sans MS */
 }
 .group-title {
   font-weight: bold;
   padding: 10px 0;
   margin-bottom: 15px;
   border-bottom: 2px solid rgba(0,0,0,0.1);
-  font-size: 24px;
+  font-size: 40px; /* 标题字体大小调整为40px */
+  font-family: 'KaiTi', serif; /* 标题使用楷体 */
 }
 .button-container {
   display: flex;
@@ -95,13 +103,15 @@
   background-color: #4A90E2;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px; /* 按钮字体大小调整为20px */
+  font-family: 'Comic Sans MS', cursive; /* 按钮使用Comic Sans MS */
 }
 .instruction {
   text-align: center;
   margin: 15px 0;
   color: #666;
-  font-size: 14px;
+  font-size: 24px; /* 提示语字体大小调整为24px */
+  font-family: 'KaiTi', serif; /* 提示语使用楷体 */
 }
 </style>
 </head>
